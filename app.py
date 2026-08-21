@@ -46,9 +46,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     states = sorted(data["state"].dropna().unique())
+
     selected_state = st.selectbox(
         "Select State",
-        states
+        states,
+        key="state_selector"
     )
 
 with col2:
@@ -61,7 +63,8 @@ with col2:
 
     selected_lga = st.selectbox(
         "Select LGA",
-        lgas
+        lgas,
+        key=f"lga_selector_{selected_state}"
     )
 
 
